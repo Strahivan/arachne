@@ -8,7 +8,7 @@ install_requires = [
 ]
 
 setup(
-    name='Arachne-Strahi',
+    name='ArachneStrahi',
     version='0.5.0',
     author='Kiran Koduru',
     author_email='kiranrkoduru@gmail.com',
