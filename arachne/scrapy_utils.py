@@ -71,16 +71,16 @@ def get_spider_settings(flask_app_config, spider_scrapy_settings):
     return settings
 
 
-def start_crawler(spider_loc, flask_app_config, spider_scrapy_settings):
+def start_crawler(spider_loc, flask_app_config, spider_scrapy_settings, *args, **kwargs):
     spider = load_object(spider_loc)
     settings = get_spider_settings(flask_app_config, spider_scrapy_settings)
+    current_app.logger.debug(kwargs)
 
     if SCRAPY_VERSION <= (1, 0, 0):
         start_logger(flask_app_config['DEBUG'])
-        crawler = create_crawler_object(spider(), settings)
+        crawler = create_crawler_object(spider(*args, **kwargs), settings)
         crawler.start()
 
     else:
         spider.custom_settings = settings
-        flask_app_config['CRAWLER_PROCESS'].crawl(spider)
-
+        flask_app_config['CRAWLER_PROCESS'].crawl(spider, *args, **kwargs)
