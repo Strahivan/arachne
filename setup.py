@@ -8,15 +8,15 @@ install_requires = [
 ]
 
 setup(
-    name='Arachne',
+    name='Arachne-Strahi',
     version='0.5.0',
     author='Kiran Koduru',
     author_email='kiranrkoduru@gmail.com',
     packages=find_packages(),
     test_suite='arachne.tests',
-    url='https://github.com/kirankoduru/arachne',
+    url='https://github.com/Strahivan/arachne',
     license='BSD',
-    description='API for Scrapy spiders',
+    description='API for Scrapy spiders, adjusted for Novelship',
     long_description=open('README.rst').read(),
     install_requires=install_requires,
 )
